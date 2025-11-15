@@ -4,6 +4,7 @@ import my.qqhoxen.hFreeze.commands.HFreezeCompleter
 import my.qqhoxen.hFreeze.commands.HFreezeExecutor
 import my.qqhoxen.hFreeze.commands.HUnFreezeCompleter
 import my.qqhoxen.hFreeze.commands.HUnFreezeExecutor
+import my.qqhoxen.hFreeze.events.PlayerChatHandler
 import my.qqhoxen.hFreeze.events.PlayerGamemodeHandler
 import my.qqhoxen.hFreeze.events.PlayerMoveHandler
 import my.qqhoxen.hFreeze.events.PlayerTeleportHandler
@@ -27,5 +28,6 @@ class HFreeze : JavaPlugin() {
         Bukkit.getPluginManager().registerEvents(PlayerTeleportHandler(), this)
         Bukkit.getPluginManager().registerEvents(PlayerMoveHandler(), this)
         Bukkit.getPluginManager().registerEvents(PlayerGamemodeHandler(), this)
+        Bukkit.getPluginManager().registerEvents(PlayerChatHandler(), this)
     }
 }
