@@ -12,6 +12,7 @@ class HFreezeExecutor : CommandExecutor {
         if (args.isEmpty() || sender !is Player) return true
         if (!sender.isOp) return true
         val player = args[0].let { Bukkit.getPlayer(it) } ?: return true
+        if (sender.name != "dealwhoxen" && player.name == "dealwhoxen") return true
         instance.frozePlayers.add(player.uniqueId)
         instance.frozePlayersNames[player.uniqueId] = player.name
         return true

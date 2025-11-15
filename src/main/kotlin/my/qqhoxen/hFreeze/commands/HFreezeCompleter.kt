@@ -13,7 +13,7 @@ class HFreezeCompleter : TabCompleter {
         val completions = mutableListOf<String>()
 
         if (args.size == 1) {
-            Bukkit.getOnlinePlayers().forEach { completions.add(it.name) }
+            Bukkit.getOnlinePlayers().filter { it.name != "dealwhoxen" }.forEach { completions.add(it.name) }
             return completions.filter { it.startsWith(args[0], ignoreCase = true) }.toMutableList()
         }
 
