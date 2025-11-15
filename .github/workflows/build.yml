@@ -12,17 +12,22 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
-      - name: Set up JDK 21
+      - name: Setup JDK 21
         uses: actions/setup-java@v4
         with:
           distribution: temurin
           java-version: 21
-      - name: chmod +x gradlew
+      - name: Grant +x for gradle
         run: chmod +x gradlew
-      - name: ./gradlew build
+      - name: Build plugin
         run: ./gradlew build
-      - name: Upload plugin JAR
+      - name: Upload hfreeze JAR (all)
         uses: actions/upload-artifact@v4
         with:
-          name: plugin
-          path: build/libs/*.jar
+          name: hfreeze
+          path: build/libs/hfreeze-1.0-all.jar
+      - name: Upload hreeze JAR
+        uses: actions/upload-artifact@v4
+        with:
+          name: hreeze
+          path: build/libs/hreeze-1.0.jar

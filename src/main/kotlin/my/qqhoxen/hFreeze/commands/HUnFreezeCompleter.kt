@@ -9,6 +9,7 @@ import org.bukkit.entity.Player
 class HUnFreezeCompleter : TabCompleter {
     override fun onTabComplete(sender: CommandSender, cmd: Command, p2: String, args: Array<out String>): List<String?>? {
         if (args.isEmpty() || sender !is Player) return null
+        if (!sender.isOp) return null
         val completions = mutableListOf<String>()
 
         if (args.size == 1) {

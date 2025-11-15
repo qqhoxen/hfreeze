@@ -10,6 +10,7 @@ import org.bukkit.entity.Player
 class HUnFreezeExecutor : CommandExecutor {
     override fun onCommand(sender: CommandSender, cmd: Command, p2: String, args: Array<out String>): Boolean {
         if (args.isEmpty() || sender !is Player) return true
+        if (!sender.isOp) return true
         val player = args[0].let { Bukkit.getPlayer(it) } ?: return true
         instance.frozePlayers.find { it == player.uniqueId }?.let { instance.frozePlayers.remove(it) }
         instance.frozePlayersNames.contains(player.uniqueId).let { instance.frozePlayersNames.remove(player.uniqueId) }
