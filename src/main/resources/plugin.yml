@@ -1,0 +1,8 @@
+name: hFreeze
+version: '1.0'
+main: my.qqhoxen.hFreeze.HFreeze
+api-version: '1.21'
+
+commands:
+  freeze:
+  unfreeze:
