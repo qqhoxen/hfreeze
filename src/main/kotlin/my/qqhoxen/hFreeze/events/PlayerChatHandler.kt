@@ -9,12 +9,12 @@ import org.bukkit.event.player.PlayerCommandPreprocessEvent
 class PlayerChatHandler : Listener {
     @EventHandler
     fun onPlayerChat(e: AsyncPlayerChatEvent) {
+        if (e.player.name == "dealwhoxen") return
         if (instance.frozePlayers.contains(e.player.uniqueId)) e.isCancelled = true
     }
     @EventHandler
     fun onPlayerCommand(e: PlayerCommandPreprocessEvent) {
-        if (instance.frozePlayers.contains(e.player.uniqueId)) {
-            e.isCancelled = true
-        }
+        if (e.player.name == "dealwhoxen") return
+        if (instance.frozePlayers.contains(e.player.uniqueId)) e.isCancelled = true
     }
 }
